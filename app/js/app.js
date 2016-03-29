@@ -18,7 +18,7 @@ techTTApp.config(['$routeProvider',
         templateUrl: 'partials/community.html',
         controller: 'CommunityDetailCtrl'
       }).
-      when('/communities/getinvolved', {
+      when('/getinvolved', {
         templateUrl: 'partials/getinvolved.html',
         controller: 'GetInvolvedCtrl'
       }).
