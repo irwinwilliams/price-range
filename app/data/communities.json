@@ -78,5 +78,17 @@
             ],
         "description": "The Trinidad and Tobago Animation Network is a group of Trinbagonian animators (and people servicing the animation industry) both locally and internationally.",
         "categories": ["animation"]
+    },
+    {
+        "_id": 7,
+        "name": "GamePyong",
+        "logoUrl": "http://www.gamepyong.com/assets/img/game-pyong-logo.png",
+        "web": "http://www.gamepyong.com/",
+        "social": 
+            [ 
+                {"name": "Facebook", "url":"https://www.facebook.com/GamePyong-150127438483912/"}
+            ],
+        "description": "GamePyong is a local indie game development studio with years of experience developing mobile, web and desktop games.",
+        "categories": ["game development"]
     }
 ]
