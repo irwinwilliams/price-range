@@ -90,5 +90,18 @@
             ],
         "description": "GamePyong is a local indie game development studio with years of experience developing mobile, web and desktop games.",
         "categories": ["game development"]
+    },
+    {
+        "_id": 8,
+        "name": "Caribbean Tech Forum",
+        "logoUrl": "img/tech_community.png",
+        "web": "http://www.caribbeantechforum.com/",
+        "social": 
+            [ 
+                {"name": "Facebook", "url":"https://www.facebook.com/CaribbeanTechForum/"},
+                {"name": "Slack", "url":"https://caribbeantech.slack.com"}
+            ],
+        "description": "We're all about connecting Caribbean IT professionals and developers across industry spectrums and skill levels. Whether you are in the Caribbean, or a member of the Caribbean diaspora located outside the region, from students to experts, all are welcome to come learn from each other and share their experiences!",
+        "categories": ["software developers", "designers", "coders", "bitcoin", "entrepreneurship", "ecommerce", "ethical hacking"]
     }
 ]
