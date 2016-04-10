@@ -103,5 +103,276 @@
             ],
         "description": "We're all about connecting Caribbean IT professionals and developers across industry spectrums and skill levels. Whether you are in the Caribbean, or a member of the Caribbean diaspora located outside the region, from students to experts, all are welcome to come learn from each other and share their experiences!",
         "categories": ["software developers", "designers", "coders", "bitcoin", "entrepreneurship", "ecommerce", "ethical hacking"]
-    }
+    },{
+		"_id": 9,
+		"name": "Group Name",
+		"logoUrl": "img/tech_community.png",
+		"web": "Website",
+		"social": [],
+		"description": "Group Target Members/Description",
+		"categories": []
+	},
+	{
+		"_id": 10,
+		"name": "Trinidad and Tobago Computer Society",
+		"logoUrl": "img/tech_community.png",
+		"web": "http://www.ttcsweb.org/ http://www.cs.tt/",
+		"social": [],
+		"description": "General Computer Users",
+		"categories": []
+	},
+	{
+		"_id": 11,
+		"name": "Eastern Caribbean Oracle Users’ Group (ECOUG)",
+		"logoUrl": "img/tech_community.png",
+		"web": null,
+		"social": [],
+		"categories": []
+	},
+	{
+		"_id": 12,
+		"name": "Information and Communications Technology Society (ICTS)",
+		"logoUrl": "img/tech_community.png",
+		"web": null,
+		"social": [],
+		"description": "Professionals in TT ICT positions",
+		"categories": []
+	},
+	{
+		"_id": 13,
+		"name": "Internet Society of Trinidad and Tobago (ISOC-TT)",
+		"logoUrl": "img/tech_community.png",
+		"web": "http://www.isoc.tt/",
+		"social": [],
+		"categories": []
+	},
+	{
+		"_id": 14,
+		"name": "Trinidad and Tobago Apple Community (TTAC)",
+		"logoUrl": "img/tech_community.png",
+		"web": null,
+		"social": [],
+		"description": "General Mac and iDevice users",
+		"categories": []
+	},
+	{
+		"_id": 15,
+		"name": "Trinidad and Tobago Linux Users Group (TTLUG)",
+		"logoUrl": "img/tech_community.png",
+		"web": null,
+		"social": [],
+		"description": "Hackers and other persons interested in Linux, or FLOS (Free, Libre and Open Source) software",
+		"categories": []
+	},
+	{
+		"_id": 16,
+		"name": "TriniGamers (TG)",
+		"logoUrl": "img/tech_community.png",
+		"web": "http://www.trinigamers.com/",
+		"social": [],
+		"categories": []
+	},
+	{
+		"_id": 17,
+		"name": "UWI Jammers",
+		"logoUrl": "img/tech_community.png",
+		"web": null,
+		"social": [],
+		"categories": []
+	},
+	{
+		"_id": 18,
+		"name": "UWI Computer Society",
+		"logoUrl": "img/tech_community.png",
+		"web": null,
+		"social": [],
+		"description": "UWI Computer Science and IT students",
+		"categories": []
+	},
+	{
+		"_id": 19,
+		"name": "GDG Puerto Rico",
+		"logoUrl": "img/tech_community.png",
+		"web": null,
+		"social": [],
+		"description": null,
+		"categories": []
+	},
+	{
+		"_id": 20,
+		"name": "App Developer’s Community (Barbados) ",
+		"logoUrl": "img/tech_community.png",
+		"web": null,
+		"social": [],
+		"categories": []
+	},
+	{
+		"_id": 21,
+		"name": "ISOCPR is the Puerto Rico Chapter",
+		"logoUrl": "img/tech_community.png",
+		"web": "http://isocpr.org/",
+		"social": [],
+		"categories": []
+	},
+	{
+		"_id": 22,
+		"name": "Internet Society, Capítulo República Dominicana (ISOC-RD)",
+		"logoUrl": "img/tech_community.png",
+		"web": "http://isoc-rd.org.do/",
+		"social": [],
+		"description": null,
+		"categories": []
+	},
+	{
+		"_id": 23,
+		"name": "CaribNOG",
+		"logoUrl": "img/tech_community.png",
+		"web": "http://www.caribnog.org/",
+		"social": [],
+		"description": "The Caribbean Network Operators Group (CaribNOG) is a rich community of Network Operators",
+		"categories": []
+	},
+	{
+		"_id": 24,
+		"name": "Barbados ICT Professionals Association",
+		"logoUrl": "img/tech_community.png",
+		"web": "barabadosict.org",
+		"social": [],
+		"description": "ICT Professionals Association",
+		"categories": []
+	},
+	{
+		"_id": 25,
+		"name": "Caribbean Returning Nationals Foundation ",
+		"logoUrl": "img/tech_community.png",
+		"web": "http://www.caribbeanreturningnationals.org/",
+		"social": [],
+		"description": "Caribbean Nationals ",
+		"categories": []
+	},
+	{
+		"_id": 26,
+		"name": "CodeJam Participants ",
+		"logoUrl": "img/tech_community.png",
+		"web": null,
+		"social": [],
+		"categories": []
+	},
+	{
+		"_id": 27,
+		"name": "i2i winners",
+		"logoUrl": "img/tech_community.png",
+		"web": null,
+		"social": [],
+		"categories": []
+	},
+	{
+		"_id": 28,
+		"name": "Silicone Caribe ",
+		"logoUrl": "img/tech_community.png",
+		"web": "http://www.siliconcaribe.com/",
+		"social": [],
+		"categories": []
+	},
+	{
+		"_id": 32,
+		"name": "SlashRoots ",
+		"logoUrl": "img/tech_community.png",
+		"web": "slashroots.org",
+		"social": [],
+		"categories": []
+	},
+	{
+		"_id": 34,
+		"name": "DevNet",
+		"logoUrl": "img/tech_community.png",
+		"web": "http://www.devnet.org.gy/node/8?q=node/2",
+		"social": [],
+		"categories": []
+	},
+	{
+		"_id": 35,
+		"name": "Caribbean Telecommunications Union (CTU)",
+		"logoUrl": "img/tech_community.png",
+		"web": "http://www.ctu.int/",
+		"social": [],
+		"description": "Company (Sponsership?)",
+		"categories": []
+	},
+	{
+		"_id": 36,
+		"name": "Caribbean Industrial Research Institute (CARIRI)",
+		"logoUrl": "img/tech_community.png",
+		"web": "http://www.cariri.com/",
+		"social": [],
+		"description": "Company (Sponsership?)",
+		"categories": []
+	},
+	{
+		"_id": 39,
+		"name": "CANTO",
+		"logoUrl": "img/tech_community.png",
+		"web": "http://www.canto.org",
+		"social": [],
+		"description": "Company (Sponsership?)",
+		"categories": []
+	},
+	{
+		"_id": 40,
+		"name": "The Community HUB ",
+		"logoUrl": "img/tech_community.png",
+		"web": "http://mycommunityhub.org/hub-team/",
+		"social": [],
+		"description": "Company (Sponsership?)",
+		"categories": []
+	},
+	{
+		"_id": 42,
+		"name": "PitchIT Caribbean",
+		"logoUrl": "img/tech_community.png",
+		"web": "http://pitchitcaribbean.com/",
+		"social": [],
+		"categories": []
+	},
+	{
+		"_id": 43,
+		"name": "The Saint Lucia ICT Association",
+		"logoUrl": "img/tech_community.png",
+		"web": "www.ictassociation.lc/",
+		"social": [],
+		"categories": []
+	},
+	{
+		"_id": 44,
+		"name": "The Telesur Multimedia Innovation Laboratory (TMIL)",
+		"logoUrl": "img/tech_community.png",
+		"web": "http://tmil.datasur.sr/info/index.html",
+		"social": [],
+		"categories": []
+	},
+	{
+		"_id": 45,
+		"name": "Start-Up Jamaica (SUJ) ",
+		"logoUrl": "img/tech_community.png",
+		"web": "http://start-upjamaica.com/",
+		"social": [],
+		"description": "Start-Up Jamaica (SUJ) is a public/private partnership between the Government of Jamaica through\r\nThe Ministry of Science, Technology, Energy and Mining (MSTEM) and the Development Bank of Jamaica (DBJ) on the one hand, and local and overseas private investors on the other, with the support of The World Bank Project “Youth Employment in Digital and Animation Industries”. The local and overseas private investors include JNBS, LIME, NCB, and Oasis500.",
+		"categories": []
+	},
+	{
+		"_id": 49,
+		"name": "The Trinidad and Tobago SQL Server User Group",
+		"logoUrl": "img/tech_community.png",
+		"web": "http://ttssug.org/index.php/about-us",
+		"social": [],
+		"categories": []
+	},
+	{
+		"_id": 50,
+		"name": "Association of Professional Engineers TT",
+		"logoUrl": "img/tech_community.png",
+		"web": null,
+		"social": [],
+		"categories": []
+	}
 ]
