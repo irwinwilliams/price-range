@@ -64,8 +64,8 @@
                 {"name": "Facebook", "url":"https://www.facebook.com/groups/ttlug/"},
                 {"name": "Twitter", "url":"https://twitter.com/ttlug"}
             ],
-        "description": "We are a group of Linux users *mostly* physically located in Trinidad and Tobago, or with ties to Trinidad and Tobago. We are ALL about Linux, GNU/Linux and discussions featuring Linux and other operating systems, and the utilities that work in it. Discussions about the Linux kernel, KDE, GNOME, LXDE, Ubuntu, technical issues are all fine. Using your devices with Linux: fine!",
-        "categories": ["linux"]
+        		"description": "Hackers and other persons interested in Linux, or FLOS (Free, Libre and Open Source) software",
+                 "categories": ["linux"]
     },
     {
         "_id": 6,
@@ -103,15 +103,7 @@
             ],
         "description": "We're all about connecting Caribbean IT professionals and developers across industry spectrums and skill levels. Whether you are in the Caribbean, or a member of the Caribbean diaspora located outside the region, from students to experts, all are welcome to come learn from each other and share their experiences!",
         "categories": ["software developers", "designers", "coders", "bitcoin", "entrepreneurship", "ecommerce", "ethical hacking"]
-    },{
-		"_id": 9,
-		"name": "Group Name",
-		"logoUrl": "img/tech_community.png",
-		"web": "Website",
-		"social": [],
-		"description": "Group Target Members/Description",
-		"categories": []
-	},
+    },
 	{
 		"_id": 10,
 		"name": "Trinidad and Tobago Computer Society",
@@ -153,15 +145,6 @@
 		"web": null,
 		"social": [],
 		"description": "General Mac and iDevice users",
-		"categories": []
-	},
-	{
-		"_id": 15,
-		"name": "Trinidad and Tobago Linux Users Group (TTLUG)",
-		"logoUrl": "img/tech_community.png",
-		"web": null,
-		"social": [],
-		"description": "Hackers and other persons interested in Linux, or FLOS (Free, Libre and Open Source) software",
 		"categories": []
 	},
 	{
@@ -296,7 +279,7 @@
 		"logoUrl": "img/tech_community.png",
 		"web": "http://www.ctu.int/",
 		"social": [],
-		"description": "Company (Sponsership?)",
+		"description": "",
 		"categories": []
 	},
 	{
@@ -305,7 +288,7 @@
 		"logoUrl": "img/tech_community.png",
 		"web": "http://www.cariri.com/",
 		"social": [],
-		"description": "Company (Sponsership?)",
+		"description": "",
 		"categories": []
 	},
 	{
@@ -314,7 +297,7 @@
 		"logoUrl": "img/tech_community.png",
 		"web": "http://www.canto.org",
 		"social": [],
-		"description": "Company (Sponsership?)",
+		"description": "",
 		"categories": []
 	},
 	{
@@ -323,7 +306,7 @@
 		"logoUrl": "img/tech_community.png",
 		"web": "http://mycommunityhub.org/hub-team/",
 		"social": [],
-		"description": "Company (Sponsership?)",
+		"description": "",
 		"categories": []
 	},
 	{
