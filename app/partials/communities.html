@@ -21,9 +21,9 @@
 
       <ul class="communities">
         <li ng-repeat="community in communities | filter:query | orderBy:orderProp"
-            class="col-md-3 community-listing" >
-            <div style="height:14em;text-overflow:ellipsis;margin:2px;">
-                <div class="row">
+            class="col-xs-12 col-md-3 full-card" >
+            <div style="flip-card active-card">
+                <div class="row well">
                     <a href="{{community.web}}" target="_blank" class="thumb">
                         <img style="height:40px" ng-src="{{community.logoUrl}}" alt="{{community.name}}">
                     </a>

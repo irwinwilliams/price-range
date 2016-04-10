@@ -2,19 +2,25 @@
 <!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" ng-app="TechTTApp" class="no-js"> <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tech-TT: Trinidad &amp; Tobago Technology Directory</title>
-  <meta name="description" content="">
-  <link href="components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="components/bootstrap-select/dist/css/bootstrap-select.min.css">
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="TechTTApp" class="no-js">
+<!--<![endif]-->
 
-  <link rel="stylesheet" href="css/app.css">
-  
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tech-TT: Trinidad &amp; Tobago Technology Directory</title>
+    <meta name="description" content="">
+    <link href="components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="components/bootstrap-select/dist/css/bootstrap-select.min.css">
+    <link href="material/css/ripples.min.css" rel="stylesheet">
+    <link href="material/css/material-wfont.min.css" rel="stylesheet">
+
+    <link href="css/flipper.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/app.css">
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -22,49 +28,55 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
+
 <body>
     <div class="container">
-      <div class="header clearfix">
-        <nav>
-          <ul class="nav nav-pills pull-right">
-            <li role="presentation" class="active"><a href="#">Home</a></li>
-           <li role="presentation"><a href="#/getinvolved">Get Involved</a></li>
-          </ul>
-        </nav>
-        <h3 class="text-muted"><div>Tech-TT</div></h3>
-      </div>
+        <div class="header clearfix">
+            <nav>
+                <ul class="nav nav-pills pull-right">
+                    <li role="presentation" class="active"><a href="#">Home</a></li>
+                    <li role="presentation"><a href="#/getinvolved">Get Involved</a></li>
+                </ul>
+            </nav>
+            <h3 class="text-muted"><div>Tech-TT</div></h3>
+        </div>
 
-      <div class="jumbotron">
-        <h1>Trinidad and Tobago Technology Directory</h1>
-        <p class="lead">The directory lists the various groups and communities operating in and about Trinidad and Tobago that focus on Technology.  
-            These groups may include software developers, gamers, creators, designers, advocates and entrepreneurs.  
-            At the directory, view contact information and statistics on their activity, including meetups, memberships and happenings in the news.</p>
-        <p><a class="btn btn-lg btn-success" href="#/getinvolved" role="button">Get listed</a></p>
-      </div>
-      <div ng-view></div>
-      
+        <div class="jumbotron">
+            <h1>Trinidad and Tobago Technology Directory</h1>
+            <p class="lead">The directory lists the various groups and communities operating in and about Trinidad and Tobago that focus on Technology. These groups may include software developers, gamers, creators, designers, advocates and entrepreneurs. At the directory,
+                view contact information and statistics on their activity, including meetups, memberships and happenings in the news.</p>
+            <p><a class="btn btn-lg btn-success" href="#/getinvolved" role="button">Get listed</a></p>
+        </div>
+        <div ng-view></div>
+
     </div>
-      
 
-  <!--[if lt IE 7]>
+
+    <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
 
-  
 
-  
-  
-  <script src="components/jquery/dist/jquery.min.js"></script>  
-  <script src="components/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script src="components/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
-  <script src="components/angular/angular.js"></script>
-  <script src="components/angular-route/angular-route.js"></script>
-  <script src="components/angular-resource/angular-resource.js"></script>
-  <script src="js/app.js"></script>
-  <script src="js/controllers.js"></script>
-  <script src="js/services.js"></script>
-  <script src="components/version/version.js"></script>
-  <script src="components/version/version-directive.js"></script>
-  <script src="components/version/interpolate-filter.js"></script>
+
+
+
+    <script src="components/jquery/dist/jquery.min.js"></script>
+    <script src="components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="components/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+
+    <script src="material/js/ripples.min.js"></script>
+    <script src="material/js/material.min.js"></script>
+
+    <script src="js/flipper.js"></script>
+    <script src="components/angular/angular.js"></script>
+    <script src="components/angular-route/angular-route.js"></script>
+    <script src="components/angular-resource/angular-resource.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/services.js"></script>
+    <script src="components/version/version.js"></script>
+    <script src="components/version/version-directive.js"></script>
+    <script src="components/version/interpolate-filter.js"></script>
 </body>
+
 </html>
