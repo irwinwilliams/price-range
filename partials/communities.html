@@ -21,14 +21,14 @@
 
       <ul class="communities">
         <li ng-repeat="community in communities | filter:query | orderBy:orderProp"
-            class="col-xs-12 col-md-3 full-card" >
+            class="col-xs-12 col-md-3 full-card" style="min-height:300px" >
             <div style="flip-card active-card">
-                <div class="row well">
+                <div class="row well" style="width:100%">
                     <a href="{{community.web}}" target="_blank" class="thumb">
                         <img style="height:40px" ng-src="{{community.logoUrl}}" alt="{{community.name}}">
                     </a>
                 </div>
-                <div class="row">
+                    <div class="row">
                     <h4><a href="{{community.web}}" target="_blank" >{{community.name}}</a></h4>
                 </div>
                 <div class="row " >
