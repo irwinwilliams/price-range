@@ -1,18 +1,20 @@
 'use strict';
 
 
-var techTTApp = angular.module('TechTTApp', [
+var priceRangeApp = angular.module('PriceRangeApp', [
   'ngRoute',
+  'ui.grid',
+  'ui.grid.pagination',
   'communityControllers',
   'communityServices'
 ]);
 
-techTTApp.config(['$routeProvider',
+priceRangeApp.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
-      when('/communities', {
-        templateUrl: 'partials/communities.html',
-        controller: 'CommunityListCtrl'
+      when('/prices', {
+        templateUrl: 'partials/prices.html',
+        controller: 'PriceListCtrl'
       }).
       when('/community/:communityId', {
         templateUrl: 'partials/community.html',
@@ -23,7 +25,7 @@ techTTApp.config(['$routeProvider',
         controller: 'GetInvolvedCtrl'
       }).
       otherwise({
-        redirectTo: '/communities'
+        redirectTo: '/prices'
       });
   }]);
   

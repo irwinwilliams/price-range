@@ -1,19 +1,20 @@
-<!DOCTYPE html ng-app="TechTTApp">
+<!DOCTYPE html ng-app="PriceRangeApp">
 <!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!-->
-<html lang="en" ng-app="TechTTApp" class="no-js">
+<html lang="en" ng-app="PriceRangeApp" class="no-js">
 <!--<![endif]-->
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tech-TT: Trinidad &amp; Tobago Technology Directory</title>
+    <title>Price-Range: Get the range of prices in supermarkets in Trinidad &amp; Tobago</title>
     <meta name="description" content="">
     <link href="components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="components/angular-ui-grid/ui-grid.min.css">
     <link rel="stylesheet" href="components/bootstrap-select/dist/css/bootstrap-select.min.css">
     <link href="material/css/ripples.min.css" rel="stylesheet">
     <link href="material/css/material-wfont.min.css" rel="stylesheet">
@@ -38,16 +39,11 @@
                     <li role="presentation"><a href="#/getinvolved">Get Involved</a></li>
                 </ul>
             </nav>
-            <h3 class="text-muted"><div>Tech-TT</div></h3>
+            <h3 class="text-muted"><div>price-range</div></h3>
         </div>
-
-        <div class="jumbotron">
-            <h1>Trinidad and Tobago Technology Directory</h1>
-            <p class="lead">The directory lists the various groups and communities operating in and about Trinidad and Tobago that focus on Technology. These groups may include software developers, gamers, creators, designers, advocates and entrepreneurs. At the directory,
-                view contact information and statistics on their activity, including meetups, memberships and happenings in the news.</p>
-            <p><a class="btn btn-lg btn-success" href="#/getinvolved" role="button">Get listed</a></p>
+        <div ng-view>
+            
         </div>
-        <div ng-view></div>
 
     </div>
 
@@ -71,6 +67,7 @@
     <script src="components/angular/angular.js"></script>
     <script src="components/angular-route/angular-route.js"></script>
     <script src="components/angular-resource/angular-resource.js"></script>
+    <script src="components/angular-ui-grid/ui-grid.js"></script>
     <script src="js/app.js"></script>
     <script src="js/controllers.js"></script>
     <script src="js/services.js"></script>
