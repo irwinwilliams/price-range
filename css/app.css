@@ -38,3 +38,14 @@
     -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
 }
+
+.ui-grid-header-cell-wrapper
+{
+  height: inherit !important;   
+}
+
+
+.grid {
+  width: auto;
+  height: auto;
+}

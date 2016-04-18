@@ -11,3 +11,12 @@ communityServices.factory('Community', ['$resource',
       query: {method:'GET', params:{communityId:'communities'}, isArray:true}
     });
   }]);
+  
+  
+  communityServices.factory('PriceList', ['$resource',
+  function($resource){
+    return $resource('data/tt-supermarkets-2016APR14.json', {}, 
+    {
+      query: {method:'GET', params:{communityId:'communities'}, isArray:true}
+    });
+  }]);
