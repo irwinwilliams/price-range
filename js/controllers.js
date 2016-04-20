@@ -39,8 +39,9 @@ communityControllers.controller('PriceListCtrl', ['$scope', '$http', 'uiGridCons
             if (found)
              return found;
             $(key.stores).each(function(inX, inKey){
-                
-                if (inKey.store.name.toLowerCase().indexOf(lowerTerm)>-1)
+                console.log(inKey);
+                if (inKey.store.name.toLowerCase().indexOf(lowerTerm)>-1
+                || inKey.store.location.toLowerCase().indexOf(lowerTerm)>-1)
                 {
                     found = true;
                     return found;
@@ -80,18 +81,32 @@ communityControllers.controller('PriceListCtrl', ['$scope', '$http', 'uiGridCons
        var lowestStore = 0;
        var lowestPrice = 100000;
        $(prices).each(function(idx, data){
-           avg += data.p; 
-           if (data.p < lowestPrice)
-           {
-               lowestPrice = data.p;
-               lowestStore = data;
+           if (!(data.p)) {
+               console.log("Not a number: ");
+               console.log(data);
            }
-           priceCount++;
+           else{
+            avg += data.p; 
+            if (data.p < lowestPrice)
+            {
+                lowestPrice = data.p;
+                lowestStore = data;
+            }
+            priceCount++;
+           }
        });
-       console.log(lowestStore);
-       var result = parseFloat(avg/priceCount).toFixed(2);
-       var output= "Average: "+result + "; Lowest: "+parseFloat(lowestStore.p).toFixed(2)+" at "+lowestStore.n+" in "+lowestStore.l; 
-       var template = "<div style=' word-wrap: break-word'>" + output + "</div>";
+       //console.log(lowestStore);
+       avg = parseFloat(avg/priceCount).toFixed(2);
+       if (Number.isNaN(avg))
+       {
+           console.log(prices);
+       }
+       var result = "$"+avg.toString();
+       var output= "Average: "+result + "; Lowest: $"+parseFloat(lowestStore.p).toFixed(2)+" at "+lowestStore.n+" in "+lowestStore.l; 
+       if (output.indexOf("NaN") > -1)
+       {
+           console.log(prices);
+       }
        return output;
     }    
     
@@ -106,9 +121,9 @@ communityControllers.controller('PriceListCtrl', ['$scope', '$http', 'uiGridCons
     paginationPageSizes: [25, 50, 75],
     paginationPageSize: 25,
     columnDefs: [
-      { field:  'name', displayName:'Item', headerCellClass: $scope.highlightFilteredHeader },
-      { field:  'brand', displayName:'Brand', headerCellClass: $scope.highlightFilteredHeader },
-      { field:  'quant', displayName:'Size', headerCellClass: $scope.highlightFilteredHeader },
+      { field:  'name', displayName:'Item', maxWidth: 9000, headerCellClass: $scope.highlightFilteredHeader },
+      { field:  'brand', displayName:'Brand', maxWidth: 90, headerCellClass: $scope.highlightFilteredHeader },
+      { field:  'quant', displayName:'Size', maxWidth: 90, headerCellClass: $scope.highlightFilteredHeader },
       { field:  'locations', displayName:'Stores', enableFiltering:true,
                 headerCellClass: $scope.highlightFilteredHeader,
                 filter:{
@@ -116,7 +131,7 @@ communityControllers.controller('PriceListCtrl', ['$scope', '$http', 'uiGridCons
                     //selectOptions: $scope.getLocations($scope.priceData),
                     condition: $scope.locationSearcher
                 },
-                cellTemplate: '<div class="ui-grid-cell-contents" title="TOOLTIP">{{grid.appScope.locationView(grid, row)}}</div>'
+                cellTemplate: '<div class="ui-grid-cell-contents" style="word-wrap: break-word">{{grid.appScope.locationView(grid, row)}}</div>'
       },
       
     ]
