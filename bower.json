@@ -2,9 +2,9 @@
   "name": "price-range",
   "description": "Supermarket prices in Trinidad &amp; Tobago",
   "version": "0.0.0",
-  "homepage": "https://github.com/angular/angular-seed",
+  "homepage": "https://github.com/irwinwilliams/price-range",
   "license": "MIT",
-  "private": true,
+  "private": false,
   "dependencies": {
     "angular": "~1.4.0",
     "angular-route": "~1.4.0",
@@ -13,8 +13,9 @@
     "angular-mocks": "~1.4.0",
     "html5-boilerplate": "~5.2.0",
     "bootstrap": "3.3.6",
-    "bootstrap-select":"*",
-    "angular-ui-grid":"*"
-
+    "bootstrap-select": "*",
+    "angular-ui-grid": "*",
+    "angular-chart.js": "^0.10.0",
+    "angular-nvd3": "^1.0.6"
   }
 }
