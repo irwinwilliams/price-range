@@ -5,6 +5,8 @@ var priceRangeApp = angular.module('PriceRangeApp', [
   'ngRoute',
   'ui.grid',
   'ui.grid.pagination',
+  'ui.grid.resizeColumns',
+  'nvd3',
   'communityControllers',
   'communityServices'
 ]);

@@ -8,6 +8,21 @@ var prices;
 communityControllers.controller('PriceListCtrl', ['$scope', '$http', 'uiGridConstants',
   function($scope, $http, $uiGridConstants) {
       var usefulData = [];
+      
+      $scope.getPrices = function(data)
+      {
+          var result = [];
+          var i=1;
+          $(data.locations).each(function(idx, key){
+              
+              $(key.stores).each(function(innX, inKey){
+                  i+=1;
+                  result.push({y:inKey.price, x:i/*inKey.store.name*/, l:inKey.store.location});
+              });
+          });
+          return(result);  
+      };
+      
         $http.get('data/tt-supermarkets-2016APR14.json')
             .success(function (data) {
                 prices = data;
@@ -15,7 +30,27 @@ communityControllers.controller('PriceListCtrl', ['$scope', '$http', 'uiGridCons
                 $(prices).each(function(i,k){
                     if (k.name)
                     {
-                        usefulData.push(k);
+                        var len = usefulData.push(k);
+                        usefulData[len-1].getPrices = $scope.getPrices;
+                        
+                        usefulData[len-1].spark = {
+                            options: {
+                                chart: {
+                                type: 'sparklinePlus',
+                                height: 20,
+                                width: 300,
+                                x: function(xd, i) { return i; },
+                                tooltip: function(data){ console.log(data)}
+                                }
+                            },
+                            data: $scope.getPrices(k)
+                        };
+                        
+                        
+                        
+         
+                        
+                       
                     }
                 });
                 $scope.priceData = usefulData;// PriceList.query();
@@ -39,7 +74,6 @@ communityControllers.controller('PriceListCtrl', ['$scope', '$http', 'uiGridCons
             if (found)
              return found;
             $(key.stores).each(function(inX, inKey){
-                console.log(inKey);
                 if (inKey.store.name.toLowerCase().indexOf(lowerTerm)>-1
                 || inKey.store.location.toLowerCase().indexOf(lowerTerm)>-1)
                 {
@@ -59,7 +93,6 @@ communityControllers.controller('PriceListCtrl', ['$scope', '$http', 'uiGridCons
             $(data[0].locations).each(function(idx, key){
                 loc.push({value:key.location.toLowerCase(), label: key.location});
             });
-            //console.log(loc);
         }
 
         return loc;
@@ -67,7 +100,6 @@ communityControllers.controller('PriceListCtrl', ['$scope', '$http', 'uiGridCons
     
     $scope.locationView = function(grid, row)
     {
-       // console.log(row);
         var prices = [];
        $(row.entity.locations).each(function(idx, loc)
        {
@@ -82,8 +114,7 @@ communityControllers.controller('PriceListCtrl', ['$scope', '$http', 'uiGridCons
        var lowestPrice = 100000;
        $(prices).each(function(idx, data){
            if (!(data.p)) {
-               console.log("Not a number: ");
-               console.log(data);
+               
            }
            else{
             avg += data.p; 
@@ -95,47 +126,15 @@ communityControllers.controller('PriceListCtrl', ['$scope', '$http', 'uiGridCons
             priceCount++;
            }
        });
-       //console.log(lowestStore);
        avg = parseFloat(avg/priceCount).toFixed(2);
-       if (Number.isNaN(avg))
-       {
-           console.log(prices);
-       }
+       
        var result = "$"+avg.toString();
-       var output= "Average: "+result + "; Lowest: $"+parseFloat(lowestStore.p).toFixed(2)+" at "+lowestStore.n+" in "+lowestStore.l; 
-       if (output.indexOf("NaN") > -1)
-       {
-           console.log(prices);
-       }
+       var output= "Avg: "+result + "; Best: $"+parseFloat(lowestStore.p).toFixed(2)+" at "+lowestStore.n+" in "+lowestStore.l; 
+       
        return output;
     }    
     
-    $scope.gridOptions = {
-    onRegisterApi: function(gridApi){
-        $scope.gridApi = gridApi;
-    },
-    enableSorting: true,
-    enableFiltering: true,
-    resizable: true,
-    groupable: true,
-    paginationPageSizes: [25, 50, 75],
-    paginationPageSize: 25,
-    columnDefs: [
-      { field:  'name', displayName:'Item', maxWidth: 9000, headerCellClass: $scope.highlightFilteredHeader },
-      { field:  'brand', displayName:'Brand', maxWidth: 90, headerCellClass: $scope.highlightFilteredHeader },
-      { field:  'quant', displayName:'Size', maxWidth: 90, headerCellClass: $scope.highlightFilteredHeader },
-      { field:  'locations', displayName:'Stores', enableFiltering:true,
-                headerCellClass: $scope.highlightFilteredHeader,
-                filter:{
-                    //type: "select",
-                    //selectOptions: $scope.getLocations($scope.priceData),
-                    condition: $scope.locationSearcher
-                },
-                cellTemplate: '<div class="ui-grid-cell-contents" style="word-wrap: break-word">{{grid.appScope.locationView(grid, row)}}</div>'
-      },
-      
-    ]
-  };
+    $scope.gridOptions = getGridOptions($scope);
   $scope.gridOptions.data = prices;
     
     $scope.orderProp = 'category';//name

@@ -53,3 +53,11 @@
 .header-filtered {
   color: blue;
 }
+
+.nv-sparklineplus text {
+}
+
+.nv-valueWrap
+{
+    display: none;
+}
