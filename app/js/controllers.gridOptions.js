@@ -2,7 +2,22 @@ var getGridOptions = function($scope) {
     return {
     onRegisterApi: function(gridApi){
         $scope.gridApi = gridApi;
+         gridApi.expandable.on.rowExpandedStateChanged($scope, function (row) {
+                if (row.isExpanded) {
+                  row.entity.subGridOptions = {
+                    columnDefs: [
+                    { name: 'Price'},
+                    { name: 'Store'},
+                    { name: 'Location'}
+                  ]};
+                  
+                  row.entity.subGridOptions.data = $scope.getSubGridData(row.entity);
+                }
+         }
+         );
     },
+  expandableRowTemplate: 'partials/price-details.html',
+  expandableRowHeight: 140,
     enableSorting: true,
     enableFiltering: true,
     resizable: true,
