@@ -48,12 +48,6 @@ communityControllers.controller('PriceListCtrl', ['$scope', '$http', 'uiGridCons
                             },
                             data: $scope.getPrices(k)
                         };
-                        
-                        
-                        
-         
-                        
-                       
                     }
                 });
                 $scope.priceData = usefulData;// PriceList.query();
@@ -139,6 +133,18 @@ communityControllers.controller('PriceListCtrl', ['$scope', '$http', 'uiGridCons
        
        return output;
     }    
+    
+    $scope.getSubGridData = function(entity)
+    {
+        var priceStoreLocations = [];
+        $(entity.locations).each(function(idx, key){
+            $(key.stores).each(function(innX, inKey){
+                var psl = {Price:inKey.price, Store:inKey.store.name, Location:key.location};
+                priceStoreLocations.push(psl);
+            });
+        });  
+        return priceStoreLocations;
+    };
     
     $scope.gridOptions = getGridOptions($scope);
   $scope.gridOptions.data = prices;
