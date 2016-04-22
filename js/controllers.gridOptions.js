@@ -10,10 +10,10 @@ var getGridOptions = function($scope) {
     paginationPageSizes: [25, 50, 75],
     paginationPageSize: 25,
     columnDefs: [
-      { field:  'name', displayName:'Item', width:"*", maxWidth: 9000, headerCellClass: $scope.highlightFilteredHeader },
+      { field:  'name', displayName:'Item', width:"260", maxWidth: 300, headerCellClass: $scope.highlightFilteredHeader },
       { field:  'brand', displayName:'Brand', maxWidth: 90, headerCellClass: $scope.highlightFilteredHeader },
       { field:  'quant', displayName:'Size', maxWidth: 90, headerCellClass: $scope.highlightFilteredHeader },
-      { field:  'locations', displayName:'Stores', enableFiltering:true,
+      { field:  'locations', displayName:'Stores',  maxWidth:9000,
                 headerCellClass: $scope.highlightFilteredHeader,
                 filter:{
                     //type: "select",
@@ -21,11 +21,11 @@ var getGridOptions = function($scope) {
                     condition: $scope.locationSearcher
                 },
                 
-                enableFiltering: false ,
-                cellTemplate: '<div class="ui-grid-cell-contents" style="word-wrap: break-word">{{grid.appScope.locationView(grid, row)}}</div>'
+                enableFiltering: true ,
+                cellTemplate: "partials/prices-chart.html"
       },
-      { field: 'getPrices()', enableFiltering: false ,
-      displayName: 'Prices', cellTemplate: "partials/prices-chart.html" }
+      //{ field: 'getPrices()', enableFiltering: false ,
+      //displayName: 'Prices', cellTemplate: "partials/prices-chart.html" }
       
     ]
 }};
