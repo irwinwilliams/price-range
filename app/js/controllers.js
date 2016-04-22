@@ -17,7 +17,8 @@ communityControllers.controller('PriceListCtrl', ['$scope', '$http', 'uiGridCons
               
               $(key.stores).each(function(innX, inKey){
                   i+=1;
-                  result.push({y:inKey.price, x:i/*inKey.store.name*/, l:inKey.store.location});
+                  //result.push({y:inKey.price, x:i/*inKey.store.name*/, l:inKey.store.location});
+                  result.push({"Price":inKey.price, "Freq":inKey.price, "Store":inKey.store.name, "Location":inKey.store.location});
               });
           });
           return(result);  
@@ -36,11 +37,13 @@ communityControllers.controller('PriceListCtrl', ['$scope', '$http', 'uiGridCons
                         usefulData[len-1].spark = {
                             options: {
                                 chart: {
-                                type: 'sparklinePlus',
+                                type: 'multiBarChart',
                                 height: 20,
                                 width: 300,
-                                x: function(xd, i) { return i; },
-                                tooltip: function(data){ console.log(data)}
+                                //x: function(xd, i) { return i; },
+                                "x": "Store",
+                                "y": "Price",
+                                "Group":"Location"
                                 }
                             },
                             data: $scope.getPrices(k)
@@ -57,7 +60,7 @@ communityControllers.controller('PriceListCtrl', ['$scope', '$http', 'uiGridCons
                 $scope.gridOptions.data = usefulData;
                 $scope.locations = $scope.getLocations(usefulData);
                 
-                 $scope.gridApi.grid.columns[3].filters[0] = {
+                $scope.gridApi.grid.columns[3].filters[0] = {
                     //type: "select",
                     //selectOptions: $scope.getLocations($scope.priceData),
                     condition: $scope.locationSearcher
@@ -68,6 +71,9 @@ communityControllers.controller('PriceListCtrl', ['$scope', '$http', 'uiGridCons
             
      $scope.locationSearcher = function (searchTerm, cellValue) {
         var lowerTerm = searchTerm.toLowerCase();
+        var display = $scope.locationView(cellValue);
+        var found = display.toLowerCase().indexOf(lowerTerm) > -1;
+        /*
         var lowerCell = cellValue;
         var found = false;
         $(cellValue).each(function(idx, key){
@@ -81,7 +87,7 @@ communityControllers.controller('PriceListCtrl', ['$scope', '$http', 'uiGridCons
                     return found;
                 }
             });
-        });
+        });*/
         return found;
     }
      
@@ -98,10 +104,10 @@ communityControllers.controller('PriceListCtrl', ['$scope', '$http', 'uiGridCons
         return loc;
     }   
     
-    $scope.locationView = function(grid, row)
+    $scope.locationView = function(locations)
     {
         var prices = [];
-       $(row.entity.locations).each(function(idx, loc)
+       $(locations).each(function(idx, loc)
        {
            $(loc.stores).each(function(innerX, stor)
            {
