@@ -9,7 +9,7 @@ var priceRangeApp = angular.module('PriceRangeApp', [
   'ui.grid.expandable', 'ui.grid.selection', 'ui.grid.pinning',
   'nvd3',
   'communityControllers',
-  'communityServices'
+  'priceRangeService'
 ]);
 
 priceRangeApp.config(['$routeProvider',
@@ -19,9 +19,9 @@ priceRangeApp.config(['$routeProvider',
         templateUrl: 'partials/prices.html',
         controller: 'PriceListCtrl'
       }).
-      when('/community/:communityId', {
-        templateUrl: 'partials/community.html',
-        controller: 'CommunityDetailCtrl'
+      when('/mybasket', {
+        templateUrl: 'partials/price-basket.html',
+        controller: 'BasketCtrl'
       }).
       when('/getinvolved', {
         templateUrl: 'partials/getinvolved.html',
@@ -31,46 +31,3 @@ priceRangeApp.config(['$routeProvider',
         redirectTo: '/prices'
       });
   }]);
-  
-  /*{"tt-tech": {
-  "communities": [
-    {
-     "Phones": "",	
-      "Twitter": "",	
-      "Facebook": "",	
-      "Web": "",
-      "Instagram": "",
-      "Name": "",
-      "Areas": [""],
-      "Country": "",
-      "Town": "",
-      "Email": "",
-      "AdministratorContact":""
-    },
-    {
-     "Phones": "",	
-      "Twitter": "",	
-      "Facebook": "",	
-      "Web": "",
-      "Instagram": "",
-      "Name": "",
-      "Areas": [""],
-      "Country": "",
-      "Town": "",
-      "Email": "",
-      "AdministratorContact":""
-    },
-    {
-     "Phones": "",	
-      "Twitter": "",	
-      "Facebook": "",	
-      "Web": "",
-      "Instagram": "",
-      "Name": "",
-      "Areas": [""],
-      "Country": "",
-      "Town": "",
-      "Email": "",
-      "AdministratorContact":""
-  }]}}
-  */
