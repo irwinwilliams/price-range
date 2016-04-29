@@ -2,6 +2,9 @@ var getGridOptions = function($scope) {
     return {
     onRegisterApi: function(gridApi){
         $scope.gridApi = gridApi;
+        gridApi.selection.on.rowSelectionChanged($scope, $scope.rowSelectionChanged);
+        gridApi.selection.on.rowSelectionChangedBatch($scope, $scope.rowSelectionChangedBatch);
+        
          gridApi.expandable.on.rowExpandedStateChanged($scope, function (row) {
                 if (row.isExpanded) {
                   row.entity.subGridOptions = {
