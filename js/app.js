@@ -2,6 +2,8 @@
 
 
 var priceRangeApp = angular.module('PriceRangeApp', [
+  'LocalStorageModule',
+  'ui.grid.saveState',
   'ngRoute',
   'ui.grid',
   'ui.grid.pagination',
@@ -10,7 +12,12 @@ var priceRangeApp = angular.module('PriceRangeApp', [
   'nvd3',
   'communityControllers',
   'priceRangeService'
-]);
+]).config(function ($httpProvider, localStorageServiceProvider) {
+  localStorageServiceProvider
+    .setPrefix('price-range')
+    .setStorageType('localStorage')
+    .setNotify(true, true); // Not sure what this setting does
+});
 
 priceRangeApp.config(['$routeProvider',
   function($routeProvider) {

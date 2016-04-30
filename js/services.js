@@ -8,10 +8,18 @@ priceRangeService.factory('priceRangeService', ['$http',
     function ($http) {
         var data = [];
         var basket = [];
-       
+
         return {
             async: function () {
-                return $http.get('data/tt-supermarkets-2016APR14.json');
+                var relevantPromise;
+                if (data.length > 0) {
+                    relevantPromise = new Promise(function (resolve, reject) {
+                        resolve({ data: data });
+                    });
+                }
+                else
+                    relevantPromise = $http.get('data/tt-supermarkets-2016APR14.json');
+                return relevantPromise;
             },
             parse: function (prices) {
                 data = [];
@@ -40,19 +48,23 @@ priceRangeService.factory('priceRangeService', ['$http',
                 );//endeach
                 return data;
             },//endparse
-            getBasket: function()
-            {
+            getBasket: function () {
                 return basket;
             },
             modifyBasket: function (toAdd, item) {
-                if (toAdd)
-                {
+                if (toAdd) {
+                    for (var i in basket) {
+                        var b = basket[i];
+                        if (b.name == item.name &&
+                            b.brand == item.brand &&
+                            b.quant == item.quant)
+                            return false;
+                    }
                     basket.push(item);
                 }
-                else 
-                {
-                    basket = $.grep(data, function(e){ 
-                    return item.uid != e.uid; 
+                else {
+                    basket = $.grep(data, function (e) {
+                        return item.uid != e.uid;
                     });
                 }
             },
@@ -69,17 +81,16 @@ priceRangeService.factory('priceRangeService', ['$http',
                 });
                 return (result);
             },
-            sortPrices: function(prices)
-            {
-                 function compare (a,b) {
+            sortPrices: function (prices) {
+                function compare(a, b) {
                     if (a.price < b.price)
                         return -1;
                     else if (a.price > b.price)
                         return 1;
-                    else 
+                    else
                         return 0;
                 };
-                var sorted = prices.sort(   compare);
+                var sorted = prices.sort(compare);
                 return sorted;
             },
             getLocations: function () {
