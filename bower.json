@@ -16,6 +16,7 @@
     "bootstrap-select": "*",
     "angular-ui-grid": "*",
     "angular-chart.js": "^0.10.0",
-    "angular-nvd3": "^1.0.6"
+    "angular-nvd3": "^1.0.6",
+    "angular-local-storage": "*"
   }
 }

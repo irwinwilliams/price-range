@@ -18,9 +18,19 @@ var getGridOptions = function($scope) {
                 }
          }
          );
+         
+        // Setup events so we're notified when grid state changes.
+        //$scope.gridApi.colMovable.on.columnPositionChanged($scope, $scope.saveState);
+        //$scope.gridApi.colResizable.on.columnSizeChanged($scope, $scope.saveState);
+        //$scope.gridApi.grouping.on.aggregationChanged($scope, $scope.saveState);
+        //scope.gridApi.grouping.on.groupingChanged($scope, $scope.saveState);
+        $scope.gridApi.core.on.columnVisibilityChanged($scope, $scope.saveState);
+        $scope.gridApi.core.on.filterChanged($scope, $scope.saveState);
+        $scope.gridApi.core.on.sortChanged($scope, $scope.saveState);
     },
   expandableRowTemplate: 'partials/price-details.html',
   expandableRowHeight: 140,
+  saveSelection: true,
     enableSorting: true,
     enableFiltering: true,
     resizable: true,
