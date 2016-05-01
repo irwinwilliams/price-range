@@ -65,11 +65,23 @@ communityControllers.controller('PriceListCtrl',
         };
 
         $scope.locationSearcher = function (searchTerm, cellValue) {
-            var lowerTerm = searchTerm.toLowerCase();
-            var result =  $scope.locationView(cellValue.entity, cellValue);
-            var display = result.display;
-            cellValue.entity.lowest = result.lowestStore;
-            var found = display.toLowerCase().indexOf(lowerTerm) > -1;
+            var found = false;
+            try {
+                var lowerTerm = searchTerm.toLowerCase();
+                var result =  cellValue;//$scope.locationView(cellValue.entity, cellValue);
+                var display = cellValue;//result.display;
+                if (Array.isArray(cellValue))
+                {
+                    //cellValue.entity.lowest = result.lowestStore;
+                    result =  $scope.locationView(cellValue.entity, cellValue);
+                    display = result.display;
+                }
+                found = display.toLowerCase().indexOf(lowerTerm) > -1;
+            }
+            catch (e) {
+                console.log(e); // pass exception object to error handler
+            }
+            
             return found;
         }
 
@@ -78,7 +90,10 @@ communityControllers.controller('PriceListCtrl',
             var prices = [];
             $(locations).each(function (idx, loc) {
                 $(loc.stores).each(function (innerX, stor) {
-                    prices.push({ p: stor.price, n: stor.store.name, l: loc.location });
+                    prices.push({ 
+                        p: stor.price, 
+                        n: JSON.stringify(stor.store.name), 
+                        l: JSON.stringify(loc.location) });
                 });
             });
             var avg = 0;
