@@ -156,9 +156,18 @@ communityControllers.controller('PriceListCtrl',
 communityControllers.controller('BasketCtrl', ['priceRangeService', '$scope',
     function (priceRangeService, $scope, $http, $uiGridConstants) {
         $scope.basket = priceRangeService.getBasket();
+        $scope.bestStoreInfo = priceRangeService.getBestStoreForCurrentBasket();
+        if ($scope.bestStoreInfo)
+        {
+            $scope.bestStore = $scope.bestStoreInfo.name;
+            if ($scope.bestStoreInfo.details)
+                $scope.bestLocation = $scope.bestStoreInfo.details.location;
+        }
+        
         $scope.getRecommendation = function (prices) {
             var sorted = priceRangeService.sortPrices(prices);
             return prices[0];
+            
         }
     }]);
 

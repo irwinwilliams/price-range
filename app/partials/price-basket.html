@@ -1,6 +1,9 @@
 <div class="col-md-6">
     <h2>Here are the best places to get the items you've selected</h2>
-    <h3>{{basket.length}} selected</h3>
+    <h3 class="text-primary" ng-show="basket.length > 0">For these {{basket.length}} items selected, the store with the 
+        cheapest overall cost is <span class="text-success">{{bestStore}}</span> in <span class="text-success">{{bestLocation}}</span>
+    </h3>
+    <h3 ng-show="basket.length == 0">No items selected, yet.</h3>
     <div class="well bs-component">
         <div class="row">
             <div class="col">
