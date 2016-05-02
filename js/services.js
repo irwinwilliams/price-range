@@ -51,6 +51,36 @@ priceRangeService.factory('priceRangeService', ['$http',
             getBasket: function () {
                 return basket;
             },
+            getBestStoreForCurrentBasket: function()
+            {
+                var storeItem = {};
+                var storeDetails = {};
+                $(basket).each(
+                    function(idx, key) { $(key.locations).each(
+                        function(inIdx, inKey){ $(inKey.stores).each(
+                            function(ininIdx, price){ var store = price.store;
+
+                                if (!storeItem[store.name])
+                                {
+                                    storeItem[store.name] = 0;
+                                    storeDetails[store.name] = store;
+                                }
+                                storeItem[store.name]+= price.price;
+                                //console.log(store.name);
+                            });})});
+                var lowest = 1000000;
+                var lowestStore = "";
+                for(var store in storeItem){
+                    if (storeItem[store] < lowest)
+                    {
+                        lowest = storeItem[store];
+                        lowestStore = store;
+                    }
+                }
+                var info = { name: lowestStore, details: storeDetails[lowestStore]};
+                console.log(info);
+                return info;
+            },
             modifyBasket: function (toAdd, item) {
                 if (toAdd) {
                     for (var i in basket) {
