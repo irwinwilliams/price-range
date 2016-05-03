@@ -12,13 +12,17 @@ communityControllers.controller('PriceListCtrl',
 
         $scope.saveState = function() {
             var state = $scope.gridApi.saveState.save();
+            console.log(state);
             localStorageService.set('gridState', state);
         };
 
         $scope.restoreState = function () {
             $timeout(function() {
                 var state = localStorageService.get('gridState');
+                console.log(state);
                 if (state) $scope.gridApi.saveState.restore($scope, state);
+                $scope.gridApi.selection.clearSelectedRows();
+                priceRangeService.clearBasket();
             });
         };
 
@@ -35,13 +39,13 @@ communityControllers.controller('PriceListCtrl',
             $scope.gridApi.grid.refresh();
 
         }).then(function () {
-            currentBasket = priceRangeService.getBasket();
-            $scope.gridApi.selection.clearSelectedRows();
-            $(currentBasket).each(function (idx, key) {
+            //currentBasket = priceRangeService.getBasket();
+            //$scope.gridApi.selection.clearSelectedRows();
+            //$(currentBasket).each(function (idx, key) {
                 //$scope.gridApi.selection.toggleRowSelection($scope.gridOptions.data[key.index]);
                 //console.log($scope);                
                 //console.log(key);                
-            });
+            //});
             //console.log($scope);
             //$scope.gridApi.grid.refresh();
             //console.log($scope.gridApi.selection);

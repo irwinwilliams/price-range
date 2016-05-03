@@ -48,6 +48,10 @@ priceRangeService.factory('priceRangeService', ['$http',
                 );//endeach
                 return data;
             },//endparse
+            clearBasket: function()
+            {
+                basket = [];  
+            },
             getBasket: function () {
                 return basket;
             },
