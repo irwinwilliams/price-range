@@ -8,24 +8,35 @@ priceRangeService.factory('priceRangeService', ['$http',
     function ($http) {
         var data = [];
         var basket = [];
+        var sourceFile = "tt-supermarkets-2016APR14.json";
 
         return {
-            async: function () {
+            setSource: function(source)
+            {
+                sourceFile = source;
+            },
+            async: function (flush) {
                 var relevantPromise;
-                if (data.length > 0) {
+                if (!flush && data.length > 0) {
                     relevantPromise = new Promise(function (resolve, reject) {
                         resolve({ data: data });
                     });
                 }
                 else
-                    relevantPromise = $http.get('data/tt-supermarkets-2016APR14.json');
+                {
+                    console.log("updating...");
+                    var url = 'data/'+sourceFile;
+                    relevantPromise = $http.get(url);
+                }
                 return relevantPromise;
             },
             parse: function (prices) {
                 data = [];
                 var that = this;
+                
                 $(prices).each(function (i, k) {
                     if (k.name) {
+                        if (k.locations.length <1) return;
                         var len = data.push(k);
                         data[len - 1].getPrices = that.getPrices;
 

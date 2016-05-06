@@ -1,5 +1,15 @@
 <div class="container">
-    <strong>Number of items:</strong> {{ gridOptions.data.length | number }}
-    <div ui-grid="gridOptions" class="grid table-responsive " ui-grid-resize-columns ui-grid-pinning ui-grid-expandable ui-grid-selection ui-grid-save-state></div>
-
+    <div class="row">
+            <div class="col-lg-4 col-md-4" style="padding-left: 0px; ">
+                <strong>Date:</strong> 
+                <select ng-model="priceListSource" ng-change="switchPriceList()">
+                    <option value="tt-supermarkets-2016APR14.json">April 14</option>
+                    <option value="tt-supermarkets-2016MAY05.json">May 05</option>
+                </select>
+            </div>
+        </div>
+    <div class="row">
+        <strong>Number of items:</strong> {{ gridOptions.data.length | number }}
+        <div ui-grid="gridOptions" class="grid table-responsive " ui-grid-resize-columns ui-grid-pinning ui-grid-expandable ui-grid-selection ui-grid-save-state></div>
+    </div>
 </div>
