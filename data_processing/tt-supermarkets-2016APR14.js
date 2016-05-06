@@ -5,7 +5,11 @@ var xlsx = require('node-xlsx');
 var path = require('path');
 var util = require('util');
 
+
 var scriptName = path.basename(__filename).replace("js", "xlsx");
+
+scriptName = process.argv[2];
+
 var workbook = xlsx.parse(__dirname + '/'+ scriptName); // parses a file
 
 var section1 = workbook[0];
