@@ -4,16 +4,26 @@
 
 var priceRangeService = angular.module('priceRangeService', ['ngResource']);
 
-priceRangeService.factory('priceRangeService', ['$http',
-    function ($http) {
+priceRangeService.factory('priceRangeService', ['$http', '$rootScope',
+    function ($http, $rootScope) {
         var data = [];
         var basket = [];
-        var sourceFile = "tt-supermarkets-2016APR14.json";
+        var sourceFile = "tt-supermarkets-2016MAY05.json";
 
         return {
+            subscribe: function(scope, callback) {
+                var handler = $rootScope.$on('notifying-service-event', callback);
+                scope.$on('$destroy', handler);
+            },
+
+            notify: function() {
+                $rootScope.$emit('notifying-service-event');
+            },
             setSource: function(source)
             {
+                console.log("setting source: "+source);
                 sourceFile = source;
+                this.notify();
             },
             async: function (flush) {
                 var relevantPromise;

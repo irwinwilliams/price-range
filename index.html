@@ -44,8 +44,16 @@
             </nav>
             <h3 class="text-success"><div>price-range: <em class="text-muted">experimental</em></div></h3>
         </div>
-        
-        <div ng-view>
+        <div class="row">
+            <div ng-controller="ListSourceCtrl" class="col-lg-4 col-md-4" style="padding-left: 0px; ">
+                <strong>Date:</strong> 
+                <select class="form-control" ng-model="priceListSource" ng-change="switchPriceList()">
+                    <option value="tt-supermarkets-2016APR14.json">April 14</option>
+                    <option value="tt-supermarkets-2016MAY05.json">May 05</option>
+                </select>
+            </div>
+        </div>
+        <div class="row" ng-view>
             
         </div>
 

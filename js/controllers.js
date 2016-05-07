@@ -9,7 +9,11 @@ communityControllers.controller('PriceListCtrl',
         function (priceRangeService, $scope, $http, $uiGridConstants, $timeout, localStorageService) {
             var usefulData = [];
             var currentBasket = [];
-            $scope.priceListSource = "tt-supermarkets-2016APR14.json";
+            //$scope.priceListSource = "tt-supermarkets-2016APR14.json";
+            
+            priceRangeService.subscribe($scope, function priceListChanged() {
+                $scope.updatePriceList(true);
+            });
             
             $scope.saveState = function () {
                 var state = $scope.gridApi.saveState.save();
@@ -25,11 +29,7 @@ communityControllers.controller('PriceListCtrl',
                 });
             };
 
-            $scope.switchPriceList = function()
-            {
-                priceRangeService.setSource($scope.priceListSource);
-                $scope.updatePriceList(true);
-            };
+            
             
             $scope.updatePriceList = function (flush) {
                 priceRangeService.async(flush).then(function (result) {
@@ -62,8 +62,7 @@ communityControllers.controller('PriceListCtrl',
                 }).catch(console.log.bind(console));
             };
 
-            priceRangeService.setSource($scope.priceListSource);
-
+           
             $scope.rowSelectionChanged = function (row, event) {
                 //console.log(row.entity.getPrices(row.entity));
                 row.entity.index = $scope.gridOptions.data.indexOf(row.entity);
@@ -200,3 +199,19 @@ communityControllers.controller('CommunityDetailCtrl', ['$scope', '$routeParams'
             $scope.mainImageUrl = imageUrl;
         };
     }]);
+    
+    
+communityControllers.controller('ListSourceCtrl',
+    ['priceRangeService', '$scope', 
+        function (priceRangeService, $scope) {
+            var usefulData = [];
+            var currentBasket = [];
+            $scope.priceListSource = "tt-supermarkets-2016MAY05.json";
+            $scope.switchPriceList = function()
+            {
+                priceRangeService.setSource($scope.priceListSource);
+                //$scope.updatePriceList(true);
+            };
+            priceRangeService.setSource($scope.priceListSource);
+        }]);
+    
