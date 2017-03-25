@@ -10,6 +10,10 @@ To build and run this project you will need:
 
         npm install -g bower
 
+  - Pull in bower dependencies
+
+        bower install
+
   - [express](https://expressjs.com/) a web framework for Node.js. Get is using npm:
 
         npm install -g express
